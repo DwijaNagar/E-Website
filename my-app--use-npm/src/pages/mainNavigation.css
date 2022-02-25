@@ -1,0 +1,75 @@
+.main-navigation {
+  width: 100%;
+  height: 4.5rem;
+  background: #00179b;
+}
+
+.main-navigation nav {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  height: 100%;
+}
+
+.main-navigation ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  height: 100%;
+  justify-content: left;
+  align-items: center;
+}
+
+.main-navigation li {
+  margin: 0 1rem;
+
+}
+
+.main-navigation a {
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: white;
+  border-radius: 5px;
+}
+
+.main-navigation a:hover,
+.main-navigation a:active {
+  background: white;
+  color: #00179b;
+}
+
+
+/*   
+ .parent .ant-menu-horizontal{
+  background: #010d5d !important;
+    font-size: medium;
+    font-family: revert;
+    position: fixed;
+    z-index: 5;
+    width: 1600px;
+ }
+
+ .SimpleFooter .footer-container {
+  margin-top: 20px;
+  height: 400px;
+  width: initial;;
+  justify-content:center;
+  display: flex;
+  flex-direction:initial;
+  padding: 10px 30px 10px 30px;
+  flex-wrap: wrap;
+  position: fixed;
+  font-size: 27px;
+}
+
+.SimpleFooter .col-about {
+  width: initial;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+}
+ */
+
+ 
