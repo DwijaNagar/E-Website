@@ -1,14 +1,33 @@
 import React, { useContext, useEffect } from "react";
-// import { connect } from 'react-redux';
-
+// // import { connect } from 'react-redux';
+// import { Button } from 'antd';
 import ShopContext from "../context/shop-context";
 import MainNavigation from "./mainNavigation";
+import { PlusOutlined, MinusOutlined } from '@ant-design/icons';
+import { message, Button } from 'antd';                                                     
+import "./Products.css";
+import { Popconfirm } from 'antd';
+import "./Checkout";
 import Footer  from "./Footer";
 // import { removeProductFromCart } from '../store/actions';
 import "./cart.css";
+import ProductsPage from "./Products";
 
 const CartPage = props => {
-  const context = useContext(ShopContext);
+  const context = useContext(ShopContext);  
+ 
+// SubmitEvent = e => {
+//   context.addProductToCart(this, product);
+// }
+
+  const warning = ( cartItem ) => {
+    context.removeProductFromCart( cartItem.id);
+    message.warning('Remove from Cart');
+  };
+
+  const success = ( cart ) => {
+    message.success('Successfuly place the order');
+  };
 
   useEffect(() => {
     console.log(context);
@@ -26,22 +45,62 @@ const CartPage = props => {
         <ul>
           {context.cart.map(cartItem => (
             <li key={cartItem.id}>
+             
               <div>
-                <strong>{cartItem.title}</strong> - Rs {cartItem.price} (
+             
+               <center>
+                <img src = {cartItem.Image}  width="130" height="150" />
+                    
+                     <h4>{cartItem.title}</h4> 
+               -Rs{cartItem.price} (
                 {cartItem.quantity})
-              </div>
-              <div>
-                <button
-                  onClick={context.removeProductFromCart.bind(
-                    this,
-                    cartItem.id
-                  )}
+                {/* </center>
+                </div>
+               
+                <div>
+                    <center> */}
+                    <br/>
+                    <Button shape="circle"  backgroundColor="blue" 
+                       
+                   
+                    // onClick={ context.addProductToCart( this, product ) }
+                    >
+                      <PlusOutlined />
+                   </Button>
+                 
+                    <Button shape="circle"  
+                      onClick={context.removeProductFromCart.bind(
+                        this, cartItem.id
+                        )}
+                      
+                  >
+                   <MinusOutlined /> 
+                  </Button>
+                  </center>
+                  </div>
+              
+               <Popconfirm title="Are you sure？" okText="Yes" cancelText="No">
+                <Button type="primary" danger 
+                  onClick={ () => {warning(cartItem)}}
                 >
                   Remove from Cart
-                </button>
-              </div>
+                </Button>
+                </Popconfirm>
             </li>
           ))}
+           <div style={{float: 'right'}}>
+           
+            <Button type="primary"  margin-left="922"
+            
+                onClick={ () => success() }
+                
+                
+              
+                >
+                Place the Order
+                </Button>
+            </div>
+            <br/>
         </ul>
       </main>
       <br/>
@@ -49,7 +108,7 @@ const CartPage = props => {
       <a href="/">Continue Shopping</a>
       </h3>
      
-      <Footer/>
+      {/* <Footer/> */}
     </React.Fragment>
   );
 };

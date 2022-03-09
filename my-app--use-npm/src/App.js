@@ -10,6 +10,8 @@ import Home from './pages/Home';
 import Cart from './pages/Cart'
 import GlobalState from "./context/GlobalState";
 import Products from './pages/Products';
+import Footer from "./pages/Footer";
+import Checkout from "./pages/Checkout";
 //import MainNavigation from "./pages/mainNavigation";
 
 
@@ -29,8 +31,9 @@ function App() {
         <Route exact path="/products" element={<Products/>} />
          <Route exact path="/laptop" element={<Laptop/>} /> 
         <Route exact path="/cart" element={<Cart/>} />
+        <Route exact path="/checkout" element={<Checkout/>} />
       </Routes>
-  
+     <Footer></Footer>
   </Router>
   </GlobalState>
 

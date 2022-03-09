@@ -10,7 +10,7 @@ import img2 from './Images/image4.jpg';
 import img3 from './Images/image5.jpg';
 import img4 from './Images/image6.jpg';
 import img5 from './Images/image7.jpg';
-import Footer from './Footer';
+//import Footer from './Footer';
 import './Products.css';
 
 
@@ -58,23 +58,26 @@ import './Products.css';
          <marquee>Exclusive Offer</marquee>
          </div>
 
-         <div style={{marginLeft:238}}>
-             <img src={img} width="400" height="400" alt="cam"/> <nbps/><nbps/><nbps/>
-             <img src={img1} width="400" height="400" marginLeft="400" alt="cam"/> <br/><br/><br/>
+         <div style={{marginLeft:299}}>
+             <img src={img} width="360" height="360" alt="cam"/> <nbps/><nbps/><nbps/>
+             <img src={img1} width="360" height="330" marginLeft="480" alt="cam"/> <br/><br/><br/>
              <h1 style={{marginLeft:186, color:'blue'}}>Grab the exclusive deals now</h1> 
-            <div style={{marginLeft:106}}><img src={img4} width="550" height="400" marginLeft="400" alt="cam"/></div>
+            <div style={{marginLeft:106}}><img src={img4} width="500" height="360" marginLeft="430" alt="cam"/></div>
 
         </div>
        
        <br/><br/>
-       <Footer/>
+      
        
       
        </React.Fragment>
       )}
     </ShopContext.Consumer>
-    );
+   
+   );
+   
 
+  
   }
 
 

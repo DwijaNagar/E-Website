@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-
+import img from './Images/image3.png';
+import { ShoppingCartOutlined, HomeOutlined, MobileOutlined } from '@ant-design/icons';
 import "./mainNavigation.css";
 
 const mainNavigation = props => (
@@ -9,14 +10,15 @@ const mainNavigation = props => (
      
     <nav>
       <ul>
+      <img src={img}/>  
       <li>
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="/"> <HomeOutlined/> Home</NavLink> 
         </li>
         <li>
-          <NavLink to="/products">Products</NavLink>
+          <NavLink to="/products"> <MobileOutlined />Products</NavLink>
         </li>
         <li>
-          <NavLink to="/cart">Cart ({props.cartItemNumber})</NavLink>
+          <NavLink to="/cart"> <ShoppingCartOutlined /> Cart  ({props.cartItemNumber})</NavLink>
         </li>
       </ul>
     </nav>

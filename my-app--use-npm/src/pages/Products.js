@@ -1,47 +1,101 @@
 import React from "react";
-// import { connect } from 'react-redux';
-import { ADD_PRODUCT, REMOVE_PRODUCT } from "./";
+import { useEffect, useContext } from "react";
+// import { Button } from 'antd';
+// import { PlusOutlined, MinusOutlined } from '@ant-design/icons';
+// import { Row, Col } from 'antd';
 import ShopContext from "../context/shop-context";
 import MainNavigation from "./mainNavigation";
-import Footer from './Footer';
-//import { addProductToCart } from '../store/actions';
+import { message, Button } from 'antd';
+
+// import Footer from './Footer';
+// //import img from './Images/image3';
+
 import "./Products.css";
 
-const ProductsPage = props => {
+
+
+  const ProductsPage = props => {
+  
+  const context = useContext(ShopContext);
+  // toast('Hello',{});
+  console.log('ShopContext in products--->', context);
+
+  const success = ( product ) => {
+    context.addProductToCart( product);
+    message.success('Added To Cart');
+  };
+
+  useEffect(() => {
+      console.log('Context after adding an item-->',context);
+  }, []);
   return (
-    <ShopContext.Consumer>
-      {context => (
-        <React.Fragment>
+    
+           <React.Fragment>
          <MainNavigation
             cartItemNumber={context.cart.reduce((count, curItem) => {
               return count + curItem.quantity;
             }, 0)}
           />
           <main className="products">
-            <ul>
-              {context.products.map(product => (
+          <ul>
+             {context.products.map(product => (
                 <li key={product.id}>
                   <div>
-                    <strong>{product.title}</strong>  -Rs {product.price} ({product.stock})
-                  </div>
+                  {/* {product.Image} */}
+                  <center>
+                    <img src={product.Image}  width="160" height="200"/> 
+                    <br/> 
+                   <h2>{product.title}</h2>
+   
+                   <h3>-Rs{product.price}  </h3> 
+                    {/* <strong>[{product.quantity}]</strong>             */}
+                    </center>
+                
+                 </div>
                   <div>
-                    <button
-                      onClick={context.addProductToCart.bind(this, product,stock)}
-                    >
-                       
-                      Add to Cart
-                    </button>
-                  </div>
+                   <center>
+                     
+                      <Button type="primary"
+                       onClick={ () => success(product) }
+                      >
+                        Add to Cart
+                      </Button>
+                   </center>
+                  </div> 
                 </li>
               ))}
+              <br/><br/>
             </ul>
           </main>
-          <br/><br/>
-          <Footer/>
+         
+          {/* <Footer/> */}
         </React.Fragment>
-      )}
-    </ShopContext.Consumer>
-  );
+     
+     );
+              
 };
 
+
 export default ProductsPage;
+
+
+ {/* <div>
+                    <center>
+                    <Button shape="circle"  backgroundColor="blue"
+                      onClick={context.addProductToCart.bind(this, product)}
+                    >
+                      <PlusOutlined />
+                   </Button>
+                   
+                    
+          
+                 
+                    <Button shape="circle"  
+                       onClick={context.removeProductFromCart.bind(
+                        this,
+                        { product, 'quantity': -1 }
+                    )}
+                  >
+                   <MinusOutlined /> 
+                  </Button>
+                  */}

@@ -1,5 +1,5 @@
 .cart {
-    width: 50rem;
+    width: 60rem;
     max-width: 90%;
     margin: 2rem auto;
   }
@@ -10,16 +10,34 @@
   
   .cart ul {
     list-style: none;
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    width: 118%;
+    padding: 34px;
+    margin-left: -86px;
+    background-color: #cddc393b;
   }
   
-  .cart li {
-    padding: 1rem;
+  .cart li{
+    border: 1px solid #d2e70685;
+    padding: 8rem;
     margin: 1rem 0;
-    border: 1px solid #00179b;
+    height: 89px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
+    background-color: #cddc3929;
+    }
+    
   
+    .cart li:hover {
+    cursor: pointer;
+    background-color: #e5f35d6b;
+    
+  }
+
+  .ant-btn-primary {
+    color: #fff;
+    border-color: #1890ff;
+    margin-right: 11px;
+    background: #1890ff;
+  }
